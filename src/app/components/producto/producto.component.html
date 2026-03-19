@@ -1,0 +1,14 @@
+<div class="card">
+    <p class="sku">SKU: {{ product.id }}</p>
+  <img [src]="product.imageUrl" alt="" />
+
+  <div class="info">
+    <h4>{{ product.name }}</h4>
+
+    <p class="price">${{ product.price }}</p>
+
+    <button (click)="onAdd()" [class]="product.inStock ? 'btn btn-primary' : 'btn btn-secondary disabled'">
+      Añadir al carrito
+    </button>
+  </div>
+</div>

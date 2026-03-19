@@ -1,0 +1,9 @@
+<app-header (toggleCart)="toggleCart()"></app-header>
+<div class="main-layout">
+  <div class="container"><router-outlet></router-outlet></div>
+  @if (cartVisible()) {
+    <aside class="cart-sidebar">
+      <app-carrito></app-carrito>
+    </aside>
+  }
+</div>

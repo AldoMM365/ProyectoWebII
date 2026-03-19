@@ -1,0 +1,151 @@
+<catalog>
+    <product>
+        <id>LM348</id>
+        <name>LM348 Amplificador Operacional</name>
+        <price>12.00</price>
+        <imageUrl>https://emexbit.com/wp-content/uploads/2024/11/LM348.png</imageUrl>
+        <category>Amplificadores</category>
+        <description>Amplificador operacional LM348</description>
+        <inStock>true</inStock>
+    </product>
+
+    <product>
+        <id>TDA7266</id>
+        <name>TDA7266 Amplificador de Audio</name>
+        <price>35.00</price>
+        <imageUrl>https://emexbit.com/wp-content/uploads/2024/10/TDA7266.png</imageUrl>
+        <category>Audio</category>
+        <description>Amplificador de audio TDA7266</description>
+        <inStock>true</inStock>
+    </product>
+
+    <product>
+        <id>INA106</id>
+        <name>INA106 Amplificador Diferencial</name>
+        <price>80.00</price>
+        <imageUrl>https://emexbit.com/wp-content/uploads/2024/05/INA106.png</imageUrl>
+        <category>Instrumentación</category>
+        <description>Amplificador diferencial de ganancia fija de precisión</description>
+        <inStock>true</inStock>
+    </product>
+
+    <product>
+        <id>TDA7388</id>
+        <name>TDA7388 Amplificador de Audio</name>
+        <price>60.00</price>
+        <imageUrl>https://emexbit.com/wp-content/uploads/2023/09/TDA7388-Amplificador-De-Audio-300x300.png</imageUrl>
+        <category>Audio</category>
+        <description>Amplificador de audio TDA7388</description>
+        <inStock>true</inStock>
+    </product>
+
+    <product>
+        <id>TL074</id>
+        <name>TL074 Amplificador Operacional Cuádruple</name>
+        <price>10.00</price>
+        <imageUrl>https://emexbit.com/wp-content/uploads/2023/05/tl074.jpg</imageUrl>
+        <category>Amplificadores</category>
+        <description>Amplificador operacional cuádruple de bajo ruido</description>
+        <inStock>true</inStock>
+    </product>
+
+    <product>
+        <id>RC4558D</id>
+        <name>RC4558D Amplificador Operacional</name>
+        <price>7.00</price>
+        <imageUrl>https://emexbit.com/wp-content/uploads/2023/05/4558-600x600.jpg</imageUrl>
+        <category>Amplificadores</category>
+        <description>Amplificador operacional RC4558D</description>
+        <inStock>true</inStock>
+    </product>
+
+    <product>
+        <id>TDA2050</id>
+        <name>TDA2050 Amplificador de Audio</name>
+        <price>13.00</price>
+        <imageUrl>https://emexbit.com/wp-content/uploads/2023/04/Sin-titulo-1-300x300.png</imageUrl>
+        <category>Audio</category>
+        <description>Amplificador de audio TDA2050</description>
+        <inStock>true</inStock>
+    </product>
+
+    <product>
+        <id>TDA7293</id>
+        <name>TDA7293 Amplificador de Audio</name>
+        <price>85.00</price>
+        <imageUrl>https://emexbit.com/wp-content/uploads/2023/01/Captura1-300x300.png</imageUrl>
+        <category>Audio</category>
+        <description>Amplificador de potencia de audio</description>
+        <inStock>true</inStock>
+    </product>
+
+    <product>
+        <id>INA114</id>
+        <name>INA114 Amplificador de Instrumentación</name>
+        <price>130.00</price>
+        <imageUrl>https://emexbit.com/wp-content/uploads/2023/01/INA114-300x300.webp</imageUrl>
+        <category>Instrumentación</category>
+        <description>Amplificador de instrumentación de alta precisión</description>
+        <inStock>true</inStock>
+    </product>
+
+    <product>
+        <id>TL084</id>
+        <name>TL084 Amplificador Operacional Cuádruple</name>
+        <price>10.00</price>
+        <imageUrl>https://emexbit.com/wp-content/uploads/2022/05/TL084-300x300.jpg</imageUrl>
+        <category>Amplificadores</category>
+        <description>Amplificador operacional cuádruple TL084</description>
+        <inStock>true</inStock>
+    </product>
+
+    <product>
+        <id>TL082</id>
+        <name>TL082 Amplificador Operacional Doble</name>
+        <price>8.00</price>
+        <imageUrl>https://emexbit.com/wp-content/uploads/2022/05/TL082-600x600.png</imageUrl>
+        <category>Amplificadores</category>
+        <description>Amplificador operacional doble</description>
+        <inStock>true</inStock>
+    </product>
+
+    <product>
+        <id>LM358</id>
+        <name>LM358 Amplificador Operacional Dual</name>
+        <price>4.00</price>
+        <imageUrl>https://emexbit.com/wp-content/uploads/2022/05/LM358-300x300.png</imageUrl>
+        <category>Amplificadores</category>
+        <description>Amplificador operacional dual de baja potencia</description>
+        <inStock>true</inStock>
+    </product>
+
+    <product>
+        <id>LM324</id>
+        <name>LM324 Amplificador Operacional Cuádruple</name>
+        <price>6.00</price>
+        <imageUrl>https://emexbit.com/wp-content/uploads/2022/05/LM324-300x300.png</imageUrl>
+        <category>Amplificadores</category>
+        <description>Amplificador operacional cuádruple</description>
+        <inStock>true</inStock>
+    </product>
+
+    <product>
+        <id>TL071</id>
+        <name>TL071 Amplificador Operacional</name>
+        <price>6.00</price>
+        <imageUrl>https://emexbit.com/wp-content/uploads/2023/12/TL071-600x600.jpg</imageUrl>
+        <category>Amplificadores</category>
+        <description>Amplificador operacional de bajo ruido</description>
+        <inStock>false</inStock>
+    </product>
+
+    <product>
+        <id>UPC1242</id>
+        <name>UPC1242 Amplificador de Potencia</name>
+        <price>65.00</price>
+        <imageUrl>https://emexbit.com/wp-content/uploads/2023/09/UPC1242-Amplificador-De-Potencia-600x600.png</imageUrl>
+        <category>Audio</category>
+        <description>Amplificador de potencia UPC1242</description>
+        <inStock>false</inStock>
+    </product>
+</catalog>
