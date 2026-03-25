@@ -12,7 +12,7 @@ import { Signal } from '@angular/core';
   styleUrl: './carrito.component.css',
 })
 export class CarritoComponent {
-   carrito: Signal<Product[]>;
+  carrito: Signal<Product[]>;
   total = computed(() => this.carritoService.total());
 
   constructor(private carritoService: CarritoService) {

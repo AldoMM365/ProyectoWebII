@@ -7,7 +7,7 @@
 
     <p class="price">${{ product.price }}</p>
 
-    <button (click)="onAdd()" [class]="product.inStock ? 'disabled-btn'">
+    <button (click)="onAdd()" [disabled]="!product.inStock" [class]="product.inStock ? 'btn' : 'disabled-btn'">
       Añadir al carrito
     </button>
   </div>
