@@ -3,7 +3,7 @@ import { Product } from '../../models/producto.model';
 import { ProductService } from '../../services/productos.service';
 import { CarritoService } from '../../services/carrito.service';
 import { ProductoCardComponent } from '../producto/producto.component';
-import { CarritoComponent } from '../carrito.component/carrito.component';
+import { CarritoComponent } from '../carrito/carrito.component';
 
 
 @Component({

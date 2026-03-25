@@ -1,7 +1,7 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './components/header/header.component';
-import { CarritoComponent } from './components/carrito.component/carrito.component';
+import { CarritoComponent } from './components/carrito/carrito.component';
 
 @Component({
   selector: 'app-root',

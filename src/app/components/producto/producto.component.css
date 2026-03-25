@@ -41,3 +41,7 @@ button {
   border-radius: 20px;
   cursor: pointer;
 }
+
+.disabled-btn {
+  opacity: 50%;
+}
