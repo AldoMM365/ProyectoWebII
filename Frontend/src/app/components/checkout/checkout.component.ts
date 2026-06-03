@@ -2,7 +2,7 @@ import {  AfterViewInit,  Component,  ElementRef,  ViewChild,  inject} from '@an
 import { CarritoService } from '../../services/carrito.service';
 import { PaypalService } from '../../services/paypal.service';
 import { CurrencyPipe } from '@angular/common';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { firstValueFrom } from 'rxjs';
 
 declare const paypal: any;
@@ -24,6 +24,7 @@ export class CheckoutComponent implements AfterViewInit {
   total = this.carritoService.total();
 
   mensaje = '';
+  router = inject(Router);
 
   pedido = '';
   ngAfterViewInit(): void {
@@ -81,6 +82,7 @@ export class CheckoutComponent implements AfterViewInit {
           this.carritoService.exportarXML();
           this.carritoService.vaciar();
           this.paypalButtonContainer.nativeElement.innerHTML = '';
+          this.router.navigate(['/pedidos']);
         } catch (error) {
           console.error('Error al capturar el pago:', error);
           this.mensaje = 'Ocurrió un error al capturar el pago.';

@@ -17,8 +17,8 @@ export class AuthService {
     login(email: string, password: string): Observable<any>{
         return this.http.post(`${this.apiUrl}/login`, {email, password});
     }
-    register(email: string, password: string): Observable<any>{
-        return this.http.post(`${this.apiUrl}/register`, {email, password});
+    register(email: string, password: string, name: string): Observable<any>{
+        return this.http.post(`${this.apiUrl}/register`, {email, password, name});
     }
     saveToken(token: string): void {
         localStorage.setItem('token', token);
@@ -38,12 +38,14 @@ export class AuthService {
         const token = this.getToken();
         if (!token) return false;
         const payload = JSON.parse(atob(token.split('.')[1]));
+        console.log('Payload:', payload);
         return payload.rol === role;
     }
     getUser(): User | null {
         const token = this.getToken();
         if (!token) return null;
         const payload = JSON.parse(atob(token.split('.')[1]));
+        console.log('Payload:', payload);
         return {
             email: payload.email,
             rol: payload.rol,

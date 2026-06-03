@@ -1,0 +1,247 @@
+:host {
+  display: block;
+  min-height: calc(100vh - 4rem);
+  padding: 2rem 1rem;
+}
+
+.orders-manager-shell {
+  display: flex;
+  justify-content: center;
+}
+
+.orders-manager-card {
+  width: min(100%, 70rem);
+  padding: 2rem;
+  border-radius: 1.5rem;
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(148, 163, 184, 0.22);
+  box-shadow: 0 24px 60px rgba(15, 23, 42, 0.12);
+  backdrop-filter: blur(12px);
+}
+
+.orders-header {
+  margin-bottom: 1.25rem;
+}
+
+.eyebrow {
+  margin: 0 0 0.4rem;
+  color: #0f766e;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.orders-header h1 {
+  margin: 0;
+  color: #0f172a;
+  font-size: 1.9rem;
+  letter-spacing: -0.03em;
+}
+
+.description {
+  margin: 0.6rem 0 0;
+  color: #475569;
+  line-height: 1.5;
+}
+
+.message {
+  margin-bottom: 1rem;
+  padding: 0.85rem 1rem;
+  border-radius: 0.9rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.message-error {
+  color: #991b1b;
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+}
+
+.message-success {
+  color: #166534;
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+}
+
+.orders-list {
+  display: grid;
+  gap: 1rem;
+}
+
+.order-card {
+  padding: 1rem;
+  border-radius: 1rem;
+  border: 1px solid #e2e8f0;
+  background: #fff;
+}
+
+.order-card__header {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.order-card__label,
+.order-card__meta,
+.order-product__price,
+.order-product__name {
+  margin: 0;
+}
+
+.order-card__label {
+  color: #0f766e;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.order-card__header h2 {
+  margin: 0.25rem 0 0;
+  color: #0f172a;
+  font-size: 1.15rem;
+}
+
+.order-card__meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.35rem;
+  color: #334155;
+}
+
+.order-status {
+  padding: 0.35rem 0.7rem;
+  border-radius: 999px;
+  background: #ecfeff;
+  color: #155e75;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.order-date,
+.loading {
+  color: #64748b;
+}
+
+.order-products {
+  display: grid;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.order-product {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  padding: 0.75rem;
+  border-radius: 0.9rem;
+  background: #f8fafc;
+}
+
+.order-product__image {
+  width: 3.5rem;
+  height: 3.5rem;
+  object-fit: cover;
+  border-radius: 0.75rem;
+  background: #e2e8f0;
+}
+
+.order-product__info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.order-product__name {
+  color: #0f172a;
+  font-weight: 700;
+}
+
+.order-product__price {
+  color: #64748b;
+}
+
+.status-form {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid #e2e8f0;
+}
+
+.status-form label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #334155;
+  font-weight: 600;
+}
+
+.status-actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.status-actions select {
+  min-width: 14rem;
+  padding: 0.9rem 1rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 0.9rem;
+  background: #fff;
+  color: #0f172a;
+  font: inherit;
+  outline: none;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.9rem;
+  padding: 0.8rem 1.1rem;
+  border: 0;
+  border-radius: 0.9rem;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 150ms ease, box-shadow 150ms ease, filter 150ms ease;
+}
+
+.button-primary {
+  color: #f8fafc;
+  background: linear-gradient(135deg, #0f766e 0%, #115e59 100%);
+  box-shadow: 0 14px 30px rgba(15, 118, 110, 0.28);
+}
+
+.button:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.03);
+}
+
+@media (max-width: 720px) {
+  .order-card__header,
+  .status-actions {
+    display: grid;
+  }
+
+  .order-card__meta {
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 480px) {
+  :host {
+    padding: 1rem;
+  }
+
+  .orders-manager-card {
+    padding: 1.25rem;
+    border-radius: 1.1rem;
+  }
+
+  .orders-header h1 {
+    font-size: 1.55rem;
+  }
+}

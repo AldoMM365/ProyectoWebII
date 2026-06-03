@@ -1,0 +1,64 @@
+<section class="orders-manager-shell">
+  <div class="orders-manager-card">
+    <header class="orders-header">
+      <p class="eyebrow">Área empleado</p>
+      <h1>Gestión de pedidos</h1>
+      <p class="description">Revisa todos los pedidos y cambia su estado desde esta pantalla.</p>
+    </header>
+
+    @if (error) {
+      <div class="message message-error">{{ error }}</div>
+    }
+
+    @if (success) {
+      <div class="message message-success">{{ success }}</div>
+    }
+
+    @if (cargando) {
+      <p class="loading">Cargando pedidos...</p>
+    } @else {
+      <div class="orders-list">
+        @for (pedido of pedidos; track pedido.id) {
+          <article class="order-card">
+            <div class="order-card__header">
+              <div>
+                <p class="order-card__label">Pedido #{{ pedido.id }}</p>
+                <h2>{{ pedido.usuario || 'Cliente' }}</h2>
+              </div>
+
+              <div class="order-card__meta">
+                <span class="order-status">{{ pedido.estado }}</span>
+                <span class="order-date">{{ pedido.fecha | date:'medium' }}</span>
+                <strong class="order-total">{{ calcularTotal(pedido) | currency }}</strong>
+              </div>
+            </div>
+
+            <div class="order-products">
+              @for (producto of pedido.productos; track producto.nombre) {
+                <div class="order-product">
+                  <img [src]="producto.imagen" [alt]="producto.nombre" class="order-product__image" />
+                  <div class="order-product__info">
+                    <span class="order-product__name">{{ producto.nombre }}</span>
+                    <span class="order-product__price">{{ producto.precio | currency }}</span>
+                  </div>
+                </div>
+              }
+            </div>
+
+            <form class="status-form" [formGroup]="forms[pedido.id]" (ngSubmit)="actualizarEstado(pedido)">
+              <label for="estado-{{ pedido.id }}">Cambiar estado</label>
+              <div class="status-actions">
+                <select id="estado-{{ pedido.id }}" formControlName="estado">
+                  @for (estado of estados; track estado) {
+                    <option [value]="estado">{{ estado }}</option>
+                  }
+                </select>
+                <button class="button button-primary" type="submit">Actualizar</button>
+              </div>
+            </form>
+          </article>
+        }
+      </div>
+    }
+  </div>
+</section>

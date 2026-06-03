@@ -1,0 +1,184 @@
+:host {
+  display: block;
+  min-height: calc(100vh - 4rem);
+  padding: 2rem 1rem;
+}
+
+.account-shell {
+  display: flex;
+  justify-content: center;
+}
+
+.account-card {
+  width: min(100%, 42rem);
+  padding: 2rem;
+  border-radius: 1.5rem;
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(148, 163, 184, 0.22);
+  box-shadow: 0 24px 60px rgba(15, 23, 42, 0.12);
+  backdrop-filter: blur(12px);
+}
+
+.account-header {
+  margin-bottom: 1.5rem;
+}
+
+.eyebrow {
+  margin: 0 0 0.4rem;
+  color: #0f766e;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.account-header h1 {
+  margin: 0;
+  color: #0f172a;
+  font-size: 1.9rem;
+  letter-spacing: -0.03em;
+}
+
+.description {
+  margin: 0.6rem 0 0;
+  color: #475569;
+  line-height: 1.5;
+}
+
+.account-section {
+  padding: 1.25rem;
+  border-radius: 1.1rem;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+}
+
+.account-section + .account-section {
+  margin-top: 1rem;
+}
+
+.section-title {
+  margin-bottom: 1rem;
+}
+
+.section-title h2 {
+  margin: 0;
+  color: #0f172a;
+  font-size: 1.15rem;
+}
+
+.section-title p {
+  margin: 0.35rem 0 0;
+  color: #64748b;
+  line-height: 1.5;
+}
+
+.message {
+  margin-bottom: 1rem;
+  padding: 0.85rem 1rem;
+  border-radius: 0.9rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.message-error {
+  color: #991b1b;
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+}
+
+.message-success {
+  color: #166534;
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.form-field label {
+  color: #334155;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.form-field input {
+  width: 100%;
+  padding: 0.9rem 1rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 0.9rem;
+  background: #fff;
+  color: #0f172a;
+  font: inherit;
+  outline: none;
+  transition: border-color 150ms ease, box-shadow 150ms ease, transform 150ms ease;
+}
+
+.form-field input::placeholder {
+  color: #94a3b8;
+}
+
+.form-field input:focus {
+  border-color: #0f766e;
+  box-shadow: 0 0 0 4px rgba(15, 118, 110, 0.16);
+  transform: translateY(-1px);
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 3rem;
+  padding: 0.85rem 1.25rem;
+  border: 0;
+  border-radius: 0.9rem;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 150ms ease, box-shadow 150ms ease, filter 150ms ease;
+}
+
+.button-primary {
+  color: #f8fafc;
+  background: linear-gradient(135deg, #0f766e 0%, #115e59 100%);
+  box-shadow: 0 14px 30px rgba(15, 118, 110, 0.28);
+}
+
+.button-danger {
+  color: #fff7ed;
+  background: linear-gradient(135deg, #b91c1c 0%, #991b1b 100%);
+  box-shadow: 0 14px 30px rgba(185, 28, 28, 0.24);
+}
+
+.button:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.03);
+}
+
+.button:active {
+  transform: translateY(0);
+}
+
+.danger-zone {
+  border-color: rgba(248, 113, 113, 0.2);
+  background: linear-gradient(180deg, #fff7f7 0%, #fff 100%);
+}
+
+@media (max-width: 480px) {
+  :host {
+    padding: 1rem;
+  }
+
+  .account-card {
+    padding: 1.25rem;
+    border-radius: 1.1rem;
+  }
+
+  .account-header h1 {
+    font-size: 1.55rem;
+  }
+}

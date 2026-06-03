@@ -13,11 +13,20 @@ export class MenuComponent {
   formatMenu = viewChild<Menu<string>>('formatMenu');
   categorizeMenu = viewChild<Menu<string>>('categorizeMenu');
   router = inject(Router);
-  private authService = inject(AuthService);
+  authService = inject(AuthService);
   onLogoutClick() {
     this.authService.logout();
   }
   onPedidosClick() {
     this.router.navigate(['/pedidos']);
+  }
+  onPerfilClick() {
+    this.router.navigate(['/perfil']);
+  }
+  onProductosClick() {
+    this.router.navigate(['/productos']);
+  }
+  onGestionPedidosClick() {
+    this.router.navigate(['/gestion-pedidos']);
   }
 }

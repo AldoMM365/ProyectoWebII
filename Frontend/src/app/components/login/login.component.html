@@ -1,6 +1,9 @@
-<form [formGroup]="form">
+<form [formGroup]="form" (ngSubmit)="login()">
     <fieldset>
         <legend>Login</legend>
+        @if (errorMessage) {
+            <div class="message message-error">{{ errorMessage }}</div>
+        }
         <div class="form-field">
             <label>Email:</label>
             <input name="email" formControlName="email">
@@ -12,7 +15,7 @@
         </div>
     </fieldset>
     <div class="form-buttons">
-        <button class="button button-primary" 
-                (click)="login()">Login</button>
+        <button class="button button-primary" type="submit">Login</button>
+        <a class="register-link" href="/registro">No tengo cuenta, quiero registrarme</a>
     </div>
 </form>

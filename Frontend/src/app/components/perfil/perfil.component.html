@@ -1,0 +1,81 @@
+<section class="account-shell">
+  <div class="account-card">
+    <header class="account-header">
+      <p class="eyebrow">Mi cuenta</p>
+      <h1>Perfil y seguridad</h1>
+      <p class="description">Actualiza tu nombre, correo o contraseña, o elimina tu cuenta cuando lo necesites.</p>
+    </header>
+
+    <form class="account-section" [formGroup]="profileForm" (ngSubmit)="updateProfile()">
+      <div class="section-title">
+        <h2>Datos personales</h2>
+        <p>Los cambios afectarán a tu información de usuario.</p>
+      </div>
+
+      @if (profileError) {
+        <div class="message message-error">{{ profileError }}</div>
+      }
+
+      @if (profileMessage) {
+        <div class="message message-success">{{ profileMessage }}</div>
+      }
+
+      <div class="form-field">
+        <label for="nombre">Nombre</label>
+        <input id="nombre" formControlName="nombre" type="text" placeholder="Tu nombre" />
+      </div>
+
+      <div class="form-field">
+        <label for="email">Correo electrónico</label>
+        <input id="email" formControlName="email" type="email" placeholder="tu@correo.com" />
+      </div>
+
+      <button class="button button-primary" type="submit">Guardar cambios</button>
+    </form>
+
+    <form class="account-section" [formGroup]="passwordForm" (ngSubmit)="changePassword()">
+      <div class="section-title">
+        <h2>Contraseña</h2>
+        <p>Usa una contraseña nueva diferente a la actual.</p>
+      </div>
+
+      @if (passwordError) {
+        <div class="message message-error">{{ passwordError }}</div>
+      }
+
+      @if (passwordMessage) {
+        <div class="message message-success">{{ passwordMessage }}</div>
+      }
+
+      <div class="form-field">
+        <label for="currentPassword">Contraseña actual</label>
+        <input id="currentPassword" formControlName="currentPassword" type="password" placeholder="Tu contraseña actual" />
+      </div>
+
+      <div class="form-field">
+        <label for="newPassword">Nueva contraseña</label>
+        <input id="newPassword" formControlName="newPassword" type="password" placeholder="Nueva contraseña" />
+      </div>
+
+      <div class="form-field">
+        <label for="confirmPassword">Confirmar contraseña</label>
+        <input id="confirmPassword" formControlName="confirmPassword" type="password" placeholder="Repite la nueva contraseña" />
+      </div>
+
+      <button class="button button-primary" type="submit">Cambiar contraseña</button>
+    </form>
+
+    <section class="account-section danger-zone">
+      <div class="section-title">
+        <h2>Eliminar cuenta</h2>
+        <p>Esta acción desactiva tu cuenta de forma permanente.</p>
+      </div>
+
+      @if (deleteError) {
+        <div class="message message-error">{{ deleteError }}</div>
+      }
+
+      <button class="button button-danger" type="button" (click)="deleteAccount()">Eliminar mi cuenta</button>
+    </section>
+  </div>
+</section>

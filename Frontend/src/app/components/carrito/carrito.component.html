@@ -8,7 +8,7 @@
       @for (producto of carrito().entries(); track producto[0].id) {
         <li class="item">
           <span class="line">
-            {{ producto[0].nombre }} - {{ producto[0].precio * producto[1] | currency:'MXN' }}
+            {{ producto[0].nombre }} x {{ producto[1] }} - {{ producto[0].precio * producto[1] | currency:'MXN' }}
           </span>
 
           <button class="btn danger" (click)="quitar(producto[0])">

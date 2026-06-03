@@ -1,10 +1,10 @@
 <header class="header">
   <div class="top-bar">
-    <img class="logo" src="logo.png" alt="Logo de la tienda" />
+    <a href="/"><img class="logo" src="logo.png" alt="Logo de la tienda" /></a>
 
     <div class="search">
-      <input type="text" placeholder="Buscar productos..." />
-      <button>🔍</button>
+      <input #searchInput type="text" placeholder="Buscar productos..." (keyup.enter)="searchProducts(searchInput.value)" />
+      <button type="button" (click)="searchProducts(searchInput.value)">🔍</button>
     </div>
 
     <div class="icons">
@@ -27,14 +27,18 @@
   </div>
 
   <nav class="nav">
-    <a href="#">Componentes</a>
-    <a href="#">Desarrollo</a>
-    <a href="#">SMD</a>
-    <a href="#">Optoelectrónica</a>
-    <a href="#">Herramientas</a>
-    <a href="#">3D / CNC</a>
-    <a href="#">Energía</a>
-    <a href="#">Audio y Video</a>
-    <a href="#">Más categorías</a>
+    <span (click)="filterByCategory('Desarrollo')">Desarrollo</span>
+    <span (click)="filterByCategory('Componentes')">Componentes</span>
+    <span (click)="filterByCategory('SMD')">SMD</span>
+    <span (click)="filterByCategory('Optoelectrónica')">Optoelectrónica</span>
+    <span (click)="filterByCategory('Herramientas')">Herramientas</span>
+    <span (click)="filterByCategory('3D/CNC')">3D / CNC</span>
+    <span (click)="filterByCategory('Energía')">Energía</span>
+    <span (click)="filterByCategory('Audio y Video')">Audio y Video</span>
+    <span (click)="filterByCategory(null)">Todos</span>
+    <!--button type="button" (click)="filterByCategory(null)">Todos</button>
+    <button type="button" (click)="filterByCategory('Amplificadores')">Amplificadores</button>
+    <button type="button" (click)="filterByCategory('Audio')">Audio</button>
+    <button type="button" (click)="filterByCategory('Instrumentación')">Instrumentación</button-->
   </nav>
 </header>

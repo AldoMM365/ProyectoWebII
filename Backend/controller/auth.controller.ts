@@ -8,16 +8,16 @@ import { aesKey } from '../config/crypto.config';
 
 export const register = async (req: Request, res: Response) => {
     //Verificar si el usuario existe
-    const { email, password }: { email: string, password: string, name: string } = req.body;
-    console.log(email, password);
+    const { email, password, name }: { email: string, password: string, name: string } = req.body;
+    console.log(email, password, name);
     const selectQuery = "SELECT * FROM usuario WHERE correo = ?";
     db.execute<RowDataPacket[]>(selectQuery, [email], async (err, results) => {
         if (err) return res.status(401).json({ mensaje: err.message });
         if (results.length > 0) return res.status(401).json({ mensaje: 'El correo ya existe' });
         const hashedPassword = await bcrypt.hash(password, 10);
-        const insertQuery = "INSERT INTO usuario (correo, clave) values (?, ?)";
-        console.log(email, hashedPassword)
-        db.execute<RowDataPacket[]>(insertQuery, [email, hashedPassword], (err, results) => {
+        const insertQuery = "INSERT INTO usuario (correo, clave, nombre) values (?, ?, ?)";
+        console.log(email, hashedPassword, name)
+        db.execute<RowDataPacket[]>(insertQuery, [email, hashedPassword, name], (err, results) => {
             if (err) return res.status(401).json({ mensaje: err.message });
             return res.json({ mensaje: 'Usuario creado con éxito' });
         });

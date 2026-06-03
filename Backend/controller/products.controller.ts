@@ -2,7 +2,19 @@ import db from '../config/db.config';
 import {Request, Response} from 'express';
 import { Producto } from '../types/producto.interface';
 export async function getProducts (req: Request, res: Response) {
-    const query = 'SELECT id, sku, nombre, precio, descripcion, stock, imagen FROM producto WHERE deleted = FALSE';
+    const query = `
+        SELECT
+            id,
+            sku,
+            nombre,
+            precio,
+            descripcion,
+            stock,
+            imagen,
+            categoria
+        FROM producto
+        WHERE deleted = FALSE
+    `;
     db.query(query, (err, results) => {
         if (err) {
             console.error('Error fetching products:', err);
@@ -19,9 +31,10 @@ export async function addProduct (req: Request<{}, any, Producto>, res: Response
         precio,
         descripcion,
         stock,
-        imagen
+        imagen,
+        categoria
     ) VALUES (
-     ?, ?, ?, ?, ?, ?
+     ?, ?, ?, ?, ?, ?, ?
     )
     `;
 
@@ -31,7 +44,8 @@ export async function addProduct (req: Request<{}, any, Producto>, res: Response
         req.body.precio,
         req.body.descripcion,
         req.body.stock,
-        req.body.imagen
+        req.body.imagen,
+        req.body.categoria
     ], (err, results) => {
         if (err) {
             console.error('Error inserting product:', err);
@@ -48,7 +62,8 @@ export async function updateProduct (req: Request<{}, any, Producto>, res: Respo
     precio = ?,
     descripcion = ?,
     stock = ?,
-    imagen = ?
+    imagen = ?,
+    categoria = ?
     WHERE id = ?
     `;
 
@@ -59,6 +74,7 @@ export async function updateProduct (req: Request<{}, any, Producto>, res: Respo
         req.body.descripcion,
         req.body.stock,
         req.body.imagen,
+        req.body.categoria,
         req.body.id!
     ], (err, results) => {
         if (err) {

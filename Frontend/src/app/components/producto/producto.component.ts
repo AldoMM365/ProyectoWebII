@@ -13,6 +13,7 @@ export class ProductoCardComponent {
   @Output() add = new EventEmitter<Producto>();
 
   onAdd() {
+    alert(`Agregaste ${this.product.nombre} al carrito`);
     this.add.emit(this.product);
   }
 }

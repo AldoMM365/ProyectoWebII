@@ -6,7 +6,7 @@ const router = Router();
 
 router.put('/', verifyAuth, updateAuthUser);
 router.delete('/', verifyAuth, deleteAccount);
-router.post('/changePassword', changePassword)
+router.put('/changePassword', verifyAuth, changePassword)
 
 export default router;
 

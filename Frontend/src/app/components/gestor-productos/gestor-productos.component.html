@@ -1,0 +1,92 @@
+<section class="manager-shell">
+  <div class="manager-card">
+    <header class="manager-header">
+      <p class="eyebrow">Acceso empleado</p>
+      <h1>Gestión de productos</h1>
+      <p class="description">Agrega, edita o elimina productos del catálogo desde una sola pantalla.</p>
+    </header>
+
+    @if (error) {
+      <div class="message message-error">{{ error }}</div>
+    }
+
+    @if (successMessage) {
+      <div class="message message-success">{{ successMessage }}</div>
+    }
+
+    <form class="product-form" [formGroup]="form" (ngSubmit)="saveProduct()">
+      <div class="form-row">
+        <div class="form-field">
+          <label for="sku">SKU</label>
+          <input id="sku" formControlName="sku" type="text" placeholder="SKU del producto" />
+        </div>
+        <div class="form-field">
+          <label for="nombre">Nombre</label>
+          <input id="nombre" formControlName="nombre" type="text" placeholder="Nombre del producto" />
+        </div>
+      </div>
+
+      <div class="form-field">
+        <label for="categoria">Categoría</label>
+        <input id="categoria" formControlName="categoria" type="text" placeholder="Categoría del producto" />
+      </div>
+
+      <div class="form-row">
+        <div class="form-field">
+          <label for="precio">Precio</label>
+          <input id="precio" formControlName="precio" type="number" min="0" step="0.01" />
+        </div>
+        <div class="form-field">
+          <label for="stock">Stock</label>
+          <input id="stock" formControlName="stock" type="number" min="0" step="1" />
+        </div>
+      </div>
+
+      <div class="form-field">
+        <label for="imagen">Imagen</label>
+        <input id="imagen" formControlName="imagen" type="text" placeholder="URL o nombre de archivo" />
+      </div>
+
+      <div class="form-field">
+        <label for="descripcion">Descripción</label>
+        <textarea id="descripcion" formControlName="descripcion" rows="4" placeholder="Descripción del producto"></textarea>
+      </div>
+
+      <div class="form-actions">
+        <button class="button button-primary" type="submit">{{ selectedId ? 'Actualizar producto' : 'Agregar producto' }}</button>
+        <button class="button button-secondary" type="button" (click)="startNew()">Limpiar</button>
+      </div>
+    </form>
+
+    <div class="list-header">
+      <h2>Productos actuales</h2>
+      <p>{{ products.length }} productos cargados</p>
+    </div>
+
+    @if (loading) {
+      <p class="loading">Cargando productos...</p>
+    } @else {
+      <div class="product-list">
+        @for (product of products; track product.id) {
+          <article class="product-item">
+            <div class="product-info">
+              <h3>{{ product.nombre }}</h3>
+              <p>{{ product.sku }}</p>
+              <p class="category-pill">{{ product.categoria }}</p>
+              <p class="muted">{{ product.descripcion }}</p>
+              <div class="meta">
+                <span>Precio: {{ product.precio | currency }}</span>
+                <span>Stock: {{ product.stock }}</span>
+              </div>
+            </div>
+
+            <div class="item-actions">
+              <button class="button button-secondary" type="button" (click)="editProduct(product)">Editar</button>
+              <button class="button button-danger" type="button" (click)="removeProduct(product)">Eliminar</button>
+            </div>
+          </article>
+        }
+      </div>
+    }
+  </div>
+</section>

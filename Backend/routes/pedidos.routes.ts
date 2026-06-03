@@ -6,7 +6,7 @@ import empleadoMiddleware from '../middleware/empleado.middleware'
 const router = Router();
 
 router.get('/', authMiddleware, getAuthUserPedidos);
-router.put('/', authMiddleware, empleadoMiddleware, actualizarEstado);
+router.put('/:id', authMiddleware, empleadoMiddleware, actualizarEstado);
 router.get('/all', authMiddleware, empleadoMiddleware, getAll);
 
 export default router;

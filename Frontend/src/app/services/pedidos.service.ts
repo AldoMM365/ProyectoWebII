@@ -5,6 +5,7 @@ import { Observable } from "rxjs";
 export interface PedidoProducto {
     nombre: string;
     precio: number;
+    cantidad: number;
     imagen?: string;
 }
 
@@ -12,6 +13,7 @@ export interface Pedido {
     id: number;
     fecha: string;
     estado: string;
+    usuario?: string;
     productos: PedidoProducto[];
 }
 
@@ -22,5 +24,13 @@ export class PedidosService {
 
     obtenerPedidos(): Observable<Pedido[]> {
         return this.http.get<Pedido[]>(this.apiUrl);
+    }
+
+    obtenerPedidosEmpleado(): Observable<Pedido[]> {
+        return this.http.get<Pedido[]>(`${this.apiUrl}/all`);
+    }
+
+    actualizarEstadoPedido(id: number, estado: string): Observable<any> {
+        return this.http.put(`${this.apiUrl}/${id}`, { estado });
     }
 }

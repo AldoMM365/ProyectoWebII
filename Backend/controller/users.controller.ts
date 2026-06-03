@@ -4,7 +4,7 @@ import bcrypt from 'bcrypt';
 import { RowDataPacket } from 'mysql2';
 import { User } from '../types/user.interface';
 
-export function updateAuthUser(req: Request<{}, User>, res: Response) {
+export function updateAuthUser(req: Request<{}, any, { nombre: string; email: string }>, res: Response) {
     const query = `
     UPDATE usuario
     SET
@@ -14,7 +14,7 @@ export function updateAuthUser(req: Request<{}, User>, res: Response) {
     id = ?
     `;
 
-    db.execute(query, [req.body.email, req.body.nombre], (err, result) => {
+    db.execute(query, [req.body.nombre, req.body.email, req.user!.id], (err, result) => {
         if (err) return res.status(500).json({mensaje: err.message});
         res.json({result});
     })

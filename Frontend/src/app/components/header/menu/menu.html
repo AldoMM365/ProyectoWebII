@@ -11,23 +11,23 @@
 >
   <div ngMenu class="menu" #formatMenu="ngMenu">
     <ng-template ngMenuContent>
-      <div ngMenuItem value="Mark as read">
-        <span class="icon material-symbols-outlined" translate="no" aria-hidden="true"
-          >mark_email_read</span
-        >
-        <span class="label">Mark as read</span>
-      </div>
-      <div ngMenuItem value="Snooze">
-        <span class="icon material-symbols-outlined" translate="no" aria-hidden="true">snooze</span>
-        <span class="label">Snooze</span>
-      </div>
+      @if (authService.hasRole('empleado')) {
+        <div ngMenuItem value="Products" (click)="onProductosClick()">
+          <span class="icon material-symbols-outlined" translate="no" aria-hidden="true">inventory_2</span>
+          <span class="label">Productos</span>
+        </div>
+        <div ngMenuItem value="Orders" (click)="onGestionPedidosClick()">
+          <span class="icon material-symbols-outlined" translate="no" aria-hidden="true">receipt_long</span>
+          <span class="label">Gestión de pedidos</span>
+        </div>
+      }
       <div ngMenuItem value="Archive" (click)="onPedidosClick()">
         <span class="icon material-symbols-outlined" translate="no" aria-hidden="true"
           >package</span
         >
         <span class="label">Pedidos</span>
       </div>
-      <div ngMenuItem value="Report spam">
+      <div ngMenuItem value="Report spam" (click)="onPerfilClick()">
         <span class="icon material-symbols-outlined" translate="no" aria-hidden="true">person</span>
         <span class="label">Perfil</span>
       </div>
