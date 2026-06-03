@@ -1,17 +1,17 @@
 <section class="cart">
   <h2 class="title">Carrito</h2>
 
-  @if (carrito().length === 0) {
+  @if (carrito().size === 0) {
     <p class="empty">Tu carrito está vacío.</p>
   } @else {
     <ul class="list">
-      @for (producto of carrito(); track producto.id) {
+      @for (producto of carrito().entries(); track producto[0].id) {
         <li class="item">
           <span class="line">
-            {{ producto.name }} - {{ producto.price | currency:'MXN' }}
+            {{ producto[0].nombre }} - {{ producto[0].precio * producto[1] | currency:'MXN' }}
           </span>
 
-          <button class="btn danger" (click)="quitar(producto.id)">
+          <button class="btn danger" (click)="quitar(producto[0])">
             Quitar
           </button>
         </li>
@@ -24,7 +24,7 @@
 
     <div class="actions">
       <button class="btn" (click)="vaciar()">Vaciar carrito</button>
-      <button class="btn purple" (click)="exportarXML()">Exportar Recibo XML</button>
+      <a class="btn" routerLink="/checkout">Continuar al pago</a>
     </div>
   }
 </section>

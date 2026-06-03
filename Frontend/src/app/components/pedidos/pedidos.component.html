@@ -1,0 +1,35 @@
+<div class="orders-page">
+  <header class="orders-hero">
+    <p class="orders-hero__eyebrow">Área segura</p>
+    <h2>Mis pedidos</h2>
+    <p>Consulta los pedidos asociados a tu cuenta y revisa cada producto incluido en la compra.</p>
+  </header>
+  @for (pedido of pedidos(); track pedido.id) {
+    <article class="order-card">
+      <div class="order-card__header">
+        <div>
+          <p class="order-card__label">Pedido #{{ pedido.id }}</p>
+          <h3>{{ pedido.productos.length }} producto(s)</h3>
+        </div>
+
+        <div class="order-card__meta">
+          <span class="order-status">{{ pedido.estado }}</span>
+          <span class="order-date">{{ pedido.fecha | date:'medium' }}</span>
+          <strong class="order-total">{{ calcularTotal(pedido) | currency }}</strong>
+        </div>
+      </div>
+
+      <ul class="order-products">
+        @for (producto of pedido.productos; track producto.nombre) {
+        <li class="order-product">
+          <img [src]="producto.imagen" [alt]="producto.nombre" class="order-product__image">
+          <div class="order-product__info">
+            <span class="order-product__name">{{ producto.nombre }}</span>
+            <span class="order-product__price">{{ producto.precio | currency }}</span>
+          </div>
+        </li>
+        }
+      </ul>
+    </article>
+  }
+</div>

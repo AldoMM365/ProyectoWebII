@@ -1,13 +1,14 @@
 <div class="card">
-    <p class="sku">SKU: {{ product.id }}</p>
-  <img [src]="product.imageUrl" alt="" />
+    <p class="sku">SKU: {{ product.sku }}</p>
+  <img [src]="product.imagen" alt="" />
 
   <div class="info">
-    <h4>{{ product.name }}</h4>
+    <h4>{{ product.nombre }}</h4>
 
-    <p class="price">${{ product.price }}</p>
+    <p class="price">${{ product.precio }}</p>
+    <p class="price">{{ product.stock }} disponibles</p>
 
-    <button (click)="onAdd()" [disabled]="!product.inStock" [class]="product.inStock ? 'btn' : 'disabled-btn'">
+    <button (click)="onAdd()" [disabled]="product.stock === 0" [class]="product.stock === 0 ? 'disabled-btn' : 'btn'">
       Añadir al carrito
     </button>
   </div>

@@ -3,3 +3,6 @@
 
 #angular
 /.angular/cache
+
+#files
+/dist

@@ -1,28 +1,63 @@
-import { Injectable, signal } from '@angular/core';
-import { Product } from '../models/producto.model';
+import { Injectable, signal, computed, Signal } from '@angular/core';
+import { Producto } from '../models/producto.model';
 
 @Injectable({ providedIn: 'root' })
 export class CarritoService {
   // Lista reactiva del carrito
-  private productosSignal = signal<Product[]>([]);
+  private productosSignal = signal<Map<Producto, number>>(new Map());
 
   // Exponer como readonly
   productos = this.productosSignal.asReadonly();
 
-  agregar(producto: Product) {
-    this.productosSignal.update(lista => [...lista, producto]);
+  agregar(producto: Producto) {
+    if (this.productosSignal().has(producto)) {
+      this.productosSignal.update(lista => {
+        const newMap = new Map(lista);
+        newMap.set(producto, newMap.get(producto)! + 1);
+        return newMap;
+      });
+    } else {
+      this.productosSignal.update(lista => {
+        const newMap = new Map(lista);
+        newMap.set(producto, 1);
+        return newMap;
+      });
+    }
   }
 
-  quitar(id: string) {
-    this.productosSignal.update(lista => lista.filter(p => p.id !== id));
+  quitar(producto: Producto) {
+    this.productosSignal.update(lista => {
+      const newMap = new Map(lista);
+      if (newMap.has(producto)) {
+        const cantidad = newMap.get(producto)!;
+        if (cantidad > 1) {
+          newMap.set(producto, cantidad - 1);
+        } else {
+          newMap.delete(producto);
+        }
+      }
+      return newMap;
+    });
   }
 
   vaciar() {
-    this.productosSignal.set([]);
+    this.productosSignal.set(new Map());
   }
 
   total(): number {
-    return this.productosSignal().reduce((acc, p) => acc + p.price, 0);
+    let total = 0;
+    for (const [producto, cantidad] of this.productosSignal().entries()) {
+      total += producto.precio * cantidad;
+    }
+    return total;
+  }
+
+  cantidad(): number {
+      let total = 0;
+      for(const [producto, cantidad] of this.productosSignal().entries()) {
+        total += cantidad;
+      }
+      return total;
   }
 
   exportarXML() {
@@ -31,13 +66,14 @@ export class CarritoService {
     // Estructura XML manual
     let xml = `<?xml version="1.0" encoding="UTF-8"?>\n<recibo>\n`;
 
-    for (const p of productos) {
+    for (const [producto, cantidad] of productos.entries()) {
       xml += `  <producto>\n`;
-      xml += `    <id>${p.id}</id>\n`;
-      xml += `    <nombre>${this.escapeXml(p.name)}</nombre>\n`;
-      xml += `    <precio>${p.price}</precio>\n`;
-      if (p.description) {
-        xml += `    <descripcion>${this.escapeXml(p.description)}</descripcion>\n`;
+      xml += `    <id>${producto.id}</id>\n`;
+      xml += `    <nombre>${this.escapeXml(producto.nombre)}</nombre>\n`;
+      xml += `    <cantidad>${cantidad}</cantidad>\n`;
+      xml += `    <precio>${producto.precio * cantidad}</precio>\n`;
+      if (producto.descripcion) {
+        xml += `    <descripcion>${this.escapeXml(producto.descripcion)}</descripcion>\n`;
       }
       xml += `  </producto>\n`;
     }

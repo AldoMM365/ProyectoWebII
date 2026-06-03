@@ -8,8 +8,21 @@
     </div>
 
     <div class="icons">
-      <span>👤</span>
-      <span class="cart-icon" (click)="onCartClick()">🛒</span>
+      @if (authService.isLoggedIn()){
+        <span>👤<span class="username">{{name()}}</span></span>
+      }
+      @else {
+        <a class="username" href="/login">Iniciar sesión</a>
+      }
+      <span class="cart-icon" (click)="onCartClick()">
+        <div class="cart-items">
+          {{cantidad()}}
+        </div>
+        🛒
+      </span>
+      @if (authService.isLoggedIn()){
+        <options-menu></options-menu>
+      }
     </div>
   </div>
 
